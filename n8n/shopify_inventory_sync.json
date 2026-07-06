@@ -1,0 +1,198 @@
+{
+  "name": "Shopify Inventory Sync to Afrophysiques Storefront",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webhooks/shopify",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "webhook-node",
+      "name": "Shopify Webhook Receiver",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const crypto = require('crypto');\nconst headerSig = $input.item.json.headers['x-shopify-hmac-sha256'];\nconst body = $input.item.json.body;\nconst secret = $env.SHOPIFY_ADMIN_API_SECRET;\n\nconst hash = crypto.createHmac('sha256', secret).update(body).digest('base64');\nconst verified = (hash === headerSig);\n\nreturn {\n  json: {\n    verified,\n    payload: JSON.parse(body)\n  }\n};"
+      },
+      "id": "verify-node",
+      "name": "HMAC Verification",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        450,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.verified }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "switch-node",
+      "name": "Is Verified?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        650,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "event",
+              "value": "inventory.sync"
+            },
+            {
+              "name": "sku",
+              "value": "={{ $json.payload.variants[0].sku }}"
+            }
+          ],
+          "number": [
+            {
+              "name": "shopify_variant_id",
+              "value": "={{ $json.payload.variants[0].id }}"
+            },
+            {
+              "name": "new_stock",
+              "value": "={{ $json.payload.variants[0].inventory_quantity }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-node",
+      "name": "Flatten Payload",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        850,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8000/api/webhooks/sync",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.N8N_WEBHOOK_SECRET }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "sku",
+              "value": "={{ $json.sku }}"
+            },
+            {
+              "name": "stock",
+              "value": "={{ $json.new_stock }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "http-node",
+      "name": "Forward to Store Backend",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1050,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "message": "Invalid HMAC signature header received."
+      },
+      "id": "error-node",
+      "name": "Log Security Error",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        850,
+        400
+      ]
+    }
+  ],
+  "connections": {
+    "Shopify Webhook Receiver": {
+      "main": [
+        [
+          {
+            "node": "HMAC Verification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HMAC Verification": {
+      "main": [
+        [
+          {
+            "node": "Is Verified?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Verified?": {
+      "main": [
+        [
+          {
+            "node": "Flatten Payload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Security Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Flatten Payload": {
+      "main": [
+        [
+          {
+            "node": "Forward to Store Backend",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "f788102d-0cd1-419b-a7e8-c29015bc2f11",
+  "id": "n8n-shopify-sync-workflow"
+}

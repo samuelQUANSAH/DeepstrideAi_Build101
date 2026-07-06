@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afrophysiques | Premium Reactive Activewear Store</title>
+  <!-- SEO Metadata -->
+  <meta name="description" content="Explore Afrophysiques - an ultra-modern reactive e-commerce store with real-time Shopify inventory sync and n8n webhook integrations.">
+  <meta name="theme-color" content="#0A0A0A">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Premium Glassmorphic Header -->
+  <header class="main-header" id="main-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <span class="logo-accent">A</span>
+        <span class="logo-text">Afrophysiques</span>
+      </div>
+      
+      <nav class="nav-links">
+        <a href="#shop" class="nav-link active">Catalog</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#webhook-logs" class="nav-link">Webhook Traces</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="webhook-status" id="webhook-indicator">
+          <span class="status-dot green"></span>
+          <span class="status-label">n8n Connected</span>
+        </div>
+        <button class="cart-trigger-btn" id="cart-trigger" aria-label="Open cart">
+          <svg class="cart-icon" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" fill="currentColor"/>
+          </svg>
+          <span class="cart-badge" id="cart-badge-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="tagline">Engineered for Peak Human Performance</div>
+      <h1 class="hero-title">Reactive E-Commerce, <br><span class="text-gradient">Real-Time Precision.</span></h1>
+      <p class="hero-subtitle">
+        Afrophysiques merges premium activewear design with next-generation webhook synchronization. Fully linked to Shopify inventory via n8n automation rules.
+      </p>
+      <div class="hero-actions">
+        <a href="#shop" class="btn btn-primary">Shop Collection</a>
+        <a href="#webhook-panel" class="btn btn-secondary">Simulate Webhooks</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive E-Commerce Area -->
+  <main class="storefront-container" id="shop">
+    
+    <!-- Catalog Header & Filters -->
+    <div class="catalog-header">
+      <h2 class="section-title">Shop Apparel</h2>
+      <div class="catalog-controls">
+        <div class="search-bar">
+          <input type="text" id="search-input" placeholder="Search product..." aria-label="Search catalog">
+        </div>
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-category="all">All</button>
+          <button class="filter-tab" data-category="tops">Tops</button>
+          <button class="filter-tab" data-category="bottoms">Bottoms</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <section class="product-grid" id="product-grid">
+      <!-- Injected dynamically by app.js -->
+    </section>
+
+  </main>
+
+  <!-- Dynamic Webhook Logs / Telemetry -->
+  <section class="webhook-logs-section" id="webhook-logs">
+    <div class="logs-container">
+      <div class="logs-header">
+        <h3>Real-time Webhook Traces</h3>
+        <span class="telemetry-badge">n8n Gateway Agent</span>
+      </div>
+      <div class="logs-terminal" id="logs-terminal">
+        <div class="log-line system">[SYSTEM] Webhook listener listening on port 8000/webhooks/shopify...</div>
+        <div class="log-line system">[SYSTEM] Secure signature checks verified. Ready to accept Shopify payloads.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Webhook Simulation Control Panel -->
+  <div class="webhook-simulator-panel" id="webhook-panel">
+    <div class="webhook-panel-header">
+      <h4>Webhook Simulator</h4>
+      <p>Simulate Shopify events routed through n8n</p>
+    </div>
+    <div class="webhook-panel-actions">
+      <button class="sim-btn" id="sim-stock-update">
+        <span class="btn-icon">📦</span>
+        <div class="btn-text">
+          <strong>Inventory Sync</strong>
+          <span>Reduce hoodie stock to 3</span>
+        </div>
+      </button>
+      <button class="sim-btn" id="sim-price-drop">
+        <span class="btn-icon">🏷️</span>
+        <div class="btn-text">
+          <strong>Price markdown</strong>
+          <span>Slash Performance Tee to $49</span>
+        </div>
+      </button>
+      <button class="sim-btn" id="sim-new-item">
+        <span class="btn-icon">🆕</span>
+        <div class="btn-text">
+          <strong>Product Drop</strong>
+          <span>Inject Compression Tights</span>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Slide-out Drawer Cart -->
+  <div class="cart-drawer" id="cart-drawer" aria-hidden="true">
+    <div class="cart-drawer-backdrop" id="cart-drawer-backdrop"></div>
+    <div class="cart-drawer-content">
+      <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button class="close-cart-btn" id="close-cart" aria-label="Close cart">&times;</button>
+      </div>
+
+      <div class="cart-items-container" id="cart-items-container">
+        <!-- Injected dynamically -->
+        <p class="empty-cart-message">Your cart is empty.</p>
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">$0.00</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Taxes (Estimated)</span>
+          <span>Calculated at checkout</span>
+        </div>
+        <button class="btn btn-primary btn-block" id="checkout-btn">Proceed to Shopify Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Details Modal (Popover) -->
+  <div class="product-modal" id="product-modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="close-modal-btn" id="close-modal" aria-label="Close modal">&times;</button>
+      <div class="modal-body" id="modal-body">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Script Injection -->
+  <script src="app.js"></script>
+</body>
+</html>
