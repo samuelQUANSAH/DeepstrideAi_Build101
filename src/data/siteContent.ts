@@ -20,13 +20,13 @@ export interface GovernanceRule {
 }
 
 export const siteContent = {
-  brand: "DeepStride AI",
-  tagline: "Agentic systems for the physical frontier.",
+  brand: "Califsiques",
+  tagline: "AI-native engineering for the physical frontier.",
   subtagline: "We design autonomous AI systems that reason, coordinate, and execute across digital and physical environments.",
   
   mission: {
     title: "From intelligence to execution.",
-    body: "DeepStride AI builds agentic systems that go beyond static automation. Our systems plan, retrieve, reason, validate, coordinate tools, and prepare actions for real-world deployment."
+    body: "Califsiques builds agentic systems that go beyond static automation. Our systems plan, retrieve, reason, validate, coordinate tools, and prepare actions for real-world deployment."
   },
 
   offerings: [
@@ -78,7 +78,7 @@ export const siteContent = {
   quantumHorizon: {
     title: "Quantum is the horizon.",
     tagline: "Quantum-aware research direction.",
-    body: "DeepStride AI explores quantum-inspired methods for optimization, search, and future agentic planning architectures. Our near-term systems are classical, observable, and deployable; our research direction is built for the next compute frontier."
+    body: "Califsiques explores quantum-inspired methods for optimization, search, and future agentic planning architectures. Our near-term systems are classical, observable, and deployable; our research direction is built for the next compute frontier."
   },
 
   technicalEdge: [
