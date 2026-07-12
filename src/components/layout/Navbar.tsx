@@ -23,8 +23,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
         
         {/* Brand Logo */}
         <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setCurrentTab('home')}>
-          <div className="w-10 h-10 rounded bg-gradient-to-tr from-brand-blue to-brand-violet flex items-center justify-center font-bold text-lg text-white">
-            D
+          <div className="w-10 h-10 rounded bg-gradient-to-tr from-orange-600 to-orange-400 flex items-center justify-center font-bold text-lg text-white">
+            C
           </div>
           <span className="font-heading font-bold text-xl tracking-tight text-white hidden sm:block">
             {siteContent.brand}
@@ -40,7 +40,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
               className={`px-3 py-2 rounded text-sm font-medium transition-all duration-200 ${
                 currentTab === tab.id
                   ? 'bg-white/10 text-white shadow-sm'
-                  : 'text-brand-lightgray hover:text-white hover:bg-white/5'
+                  : 'text-neutral-400 hover:text-white hover:bg-white/5'
               }`}
             >
               {tab.label}
@@ -50,8 +50,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
 
         {/* Telemetry Status Indicator */}
         <div className="hidden md:flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-          <ShieldCheck className="w-4 h-4 text-brand-green" />
-          <span className="text-xs text-brand-lightgray">System Verified</span>
+          <ShieldCheck className="w-4 h-4 text-orange-500 animate-pulse" />
+          <span className="text-xs text-neutral-400">System Verified</span>
         </div>
 
       </div>

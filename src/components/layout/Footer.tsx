@@ -17,22 +17,22 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab }) => {
               {siteContent.brand}
             </span>
           </div>
-          <p className="text-xs text-brand-lightgray mt-2">
+          <p className="text-xs text-neutral-400 mt-2">
             {siteContent.tagline}
           </p>
         </div>
 
         {/* Navigation Quick Links */}
-        <div className="flex flex-wrap justify-center gap-6 text-sm text-brand-lightgray">
-          <button onClick={() => setCurrentTab('home')} className="hover:text-white transition">Home</button>
-          <button onClick={() => setCurrentTab('systems')} className="hover:text-white transition">Systems</button>
-          <button onClick={() => setCurrentTab('research')} className="hover:text-white transition">Research</button>
-          <button onClick={() => setCurrentTab('about')} className="hover:text-white transition">About</button>
-          <button onClick={() => setCurrentTab('contact')} className="hover:text-white transition">Contact</button>
+        <div className="flex flex-wrap justify-center gap-6 text-sm text-neutral-400">
+          <button onClick={() => setCurrentTab('home')} className="hover:text-white transition cursor-pointer">Home</button>
+          <button onClick={() => setCurrentTab('systems')} className="hover:text-white transition cursor-pointer">Systems</button>
+          <button onClick={() => setCurrentTab('research')} className="hover:text-white transition cursor-pointer">Research</button>
+          <button onClick={() => setCurrentTab('about')} className="hover:text-white transition cursor-pointer">About</button>
+          <button onClick={() => setCurrentTab('contact')} className="hover:text-white transition cursor-pointer">Contact</button>
         </div>
 
         {/* Copyright */}
-        <div className="text-xs text-brand-lightgray">
+        <div className="text-xs text-neutral-400">
           &copy; {new Date().getFullYear()} {siteContent.brand}. All rights reserved.
         </div>
 
