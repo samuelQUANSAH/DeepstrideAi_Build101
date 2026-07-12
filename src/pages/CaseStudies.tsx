@@ -101,9 +101,9 @@ export const CaseStudies: React.FC = () => {
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
                 <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
                 <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
-                <span className="text-xs text-brand-lightgray ml-2 font-mono">deepstride_orchestrator_log</span>
+                <span className="text-xs text-neutral-400 ml-2 font-mono">califisiques_orchestrator_log</span>
               </div>
-              <Activity className="w-4 h-4 text-brand-green animate-pulse" />
+              <Activity className="w-4 h-4 text-orange-500 animate-pulse" />
             </div>
 
             {/* Terminal Screen */}

@@ -36,9 +36,9 @@ export const ContactCTA: React.FC = () => {
         
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="text-xs uppercase tracking-widest text-brand-green font-bold">Get in touch</span>
+          <span className="text-xs uppercase tracking-widest text-orange-500 font-bold">Get in touch</span>
           <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-white mt-2">
-            Build with DeepStride
+            Build with Califsiques
           </h2>
           <p className="text-brand-lightgray mt-3 font-light text-sm">
             Inquire about system deployment, scheduling, or collaboration.
@@ -129,7 +129,7 @@ export const ContactCTA: React.FC = () => {
                 {/* Submit button */}
                 <button 
                   type="submit"
-                  className="w-full py-4 bg-brand-green/20 hover:bg-brand-green/30 border border-brand-green/45 hover:border-brand-green text-brand-green font-semibold rounded transition flex items-center justify-center space-x-2"
+                  className="w-full py-4 bg-orange-500/20 hover:bg-orange-500/30 border border-orange-500/40 hover:border-orange-500 text-orange-500 font-semibold rounded transition flex items-center justify-center space-x-2 cursor-pointer"
                 >
                   <span>Submit Inquiry</span>
                   <Send className="w-4 h-4" />
@@ -144,10 +144,10 @@ export const ContactCTA: React.FC = () => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 className="p-12 rounded bg-gradient-to-b from-[#0b0b0b] to-black border border-white/5 flex flex-col items-center justify-center text-center absolute inset-0"
               >
-                <CheckCircle className="w-16 h-16 text-brand-green mb-6" />
+                <CheckCircle className="w-16 h-16 text-orange-500 mb-6" />
                 <h3 className="font-heading font-extrabold text-2xl text-white mb-2">Inquiry Received</h3>
-                <p className="text-brand-lightgray text-sm max-w-sm">
-                  Thank you, **{formState.name}**. The DeepStride AI engineering team will contact you shortly at **{formState.email}** to discuss your **{formState.projectType}** implementation.
+                <p className="text-neutral-400 text-sm max-w-sm">
+                  Thank you, **{formState.name}**. The Califsiques engineering team will contact you shortly at **{formState.email}** to discuss your **{formState.projectType}** implementation.
                 </p>
                 <button 
                   onClick={() => setSubmitted(false)}
