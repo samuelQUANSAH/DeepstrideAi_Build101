@@ -5,6 +5,8 @@ description: Califisiques enterprise AI operations and architecture playbook for
 
 # Califisiques Enterprise AI Operations & Architecture Playbook
 
+![Califisiques Logo](file:///Users/lynuelx/Downloads/califisique_inc_logo.jpeg)
+
 This playbook defines the architecture, security baselines, agentic orchestration, and operational workflows for building enterprise-grade, secure-by-design, and governance-ready AI systems at Califisiques. It adapts modern AI Ops playbooks to strict regulatory frameworks (NIST, HIPAA, CMMC) and grounds them in real-world production projects.
 
 ---
@@ -38,22 +40,22 @@ To prevent fragmented knowledge and fragmented agent execution, Califisiques est
 
 ### I. Tasks & Projects (Pipeline Orchestration)
 *   **Purpose**: Tracks active pipeline runs, deployment tasks, and system status metrics.
-*   **Must-Have Properties**: `Status`, `Pipeline_Stage`, `Owner`, `Trigger_Source`, `Audit_Trace_ID`.
 *   **Reference Project**: **AcuSurge Clinical Data Pipeline** (Dagster/DuckDB-driven clinical data lake tracking patient and telemetry pipelines with automated validation logs).
+
+![Pipeline Flow Diagram](file:///Users/lynuelx/Downloads/CHI_01_pipeline_flow.png)
 
 ### II. CRM & Triage (Action Items & Relationships)
 *   **Purpose**: Logs incoming client requests, tickets, claims, and approval states.
-*   **Must-Have Properties**: `Client_ID`, `Issue_Category`, `Risk_Level`, `Triage_Status`, `Next_Step`, `Assigned_Agent`.
 *   **Reference Project**: **ClaimSense Agentic Triage** & **BlindLabs DevOps Agent Arcade** (Real-time FastAPI triage of incoming claims and bug tickets with interactive diagnostic status visualizers).
+
+![Triage Agent Map](file:///Users/lynuelx/Downloads/CHI_02_agent_map.png)
 
 ### III. Notes & Brainstorms (Research & Context)
 *   **Purpose**: Captures meeting transcripts, research literature, clinical trials, and raw notes.
-*   **Must-Have Properties**: `Source_Type`, `Verification_Status`, `Freshness_Score`, `Validated_Citations`.
 *   **Reference Project**: **CareIntel Brief** (Healthcare strategy RAG matching PubMed/ClinicalTrials.gov literature with verified FDA regulatory status).
 
 ### IV. Company Knowledge (Long-term Memory & Policies)
 *   **Purpose**: Stores company policies, compliance templates, prompt guardrail rulebooks, and target security budgets.
-*   **Must-Have Properties**: `Policy_ID`, `Version`, `Last_Reviewed_By`, `Risk_Tier_Allowed`.
 *   **Reference Project**: **RAG Token Guardrails** (Redis-cached token-counting context controller sitting in front of RAG paths to maintain token budgets and prevent runaways).
 
 ---
@@ -66,7 +68,7 @@ Information flows automatically into the workspace hubs without manual copying a
 | :--- | :--- | :--- | :--- |
 | **Gmail / Outlook** | Email threads, claims, attachments | Inbox Triage, CRM updates, Auto-drafted replies | *ClaimSense Agentic Triage* |
 | **Calendar** | Meeting invites, metadata | Contextual briefs, automated meeting transcripts | *CareIntel Brief* |
-| **Slack / Teams** | Messages, informal decisions | Searchable team agreements, alert dispatches | *BlindLabs DevOps Arcade* |
+| **Slack / Teams** | Messages, informal decisions | Searchable team decisions, alert dispatches | *BlindLabs DevOps Arcade* |
 | **GitHub / Jira** | Issues, PRs, codebase updates | CI/CD path scans, automated test reports | *Portfolio README* |
 | **Dagster / Airflow** | Data pipeline execution states | Automated clinical & compliance audit trails | *AcuSurge Clinical Pipeline* |
 
@@ -93,17 +95,16 @@ graph TD
 
 ### I. The Triage & Diagnostic Agent
 *   **Role**: Evaluates incoming tickets/claims, runs compliance checks, and routes to appropriate queues.
-*   **Allowed Tools**: `pytest`, `oxlint`, local code analysis libraries.
-*   **Reference Architecture**: **BlindLabs DevOps Agent Arcade** (A* pathfinding agent scanning repository structures, isolating issues, and coordinating AST-level code patches).
+*   **Reference Architecture**: **BlindLabs DevOps Agent Arcade** (A-Star pathfinding agent scanning repository structures, isolating issues, and coordinating AST-level code patches).
+
+![LangGraph Orchestration Flowchart](file:///Users/lynuelx/Downloads/upwork/02_langgraph_flowchart.jpg)
 
 ### II. The Research & Synthesis Agent
 *   **Role**: Performs concurrent external queries, extracts evidence, and summarizes findings.
-*   **Allowed Tools**: `PubMed API`, `openFDA API`, `ClinicalTrials.gov APIv2`.
 *   **Reference Architecture**: **CareIntel Brief** (Coordinated subagents extracting literature rows, validating citations, and enforcing regulatory checks before declaring status "APPROVED").
 
 ### III. The Security & Token Guardrail Agent
 *   **Role**: Evaluates prompt sizes, scans inputs for injection patterns, sanitizes PII/PHI, and tracks budget.
-*   **Allowed Tools**: `Redis`, `tiktoken`, OpenTelemetry tracing.
 *   **Reference Architecture**: **RAG Token Guardrails** & **ClaimSense** (Context controller blocking over-budget queries and emitting OTel spans nested under structured trace keys).
 
 ---
@@ -129,7 +130,25 @@ Phase 11: Handoff & Runbook Delivery ──> Separate Client and Engineering han
 
 ---
 
-## 6. The 3-Day Rollout Plan
+## 6. Build & DevSecOps Implementation
+
+Califisiques enforces secure, modular APIs to build scalable agent services. The following implementation pattern demonstrates how we enforce input validation, rate limiting, and token budgets at the gateway level:
+
+![FastAPI Agent Code Screenshot](file:///Users/lynuelx/Downloads/upwork/04_fastapi_agent_code.jpg)
+
+---
+
+## 7. Observability & Monitoring Implementation
+
+Observability is a mandatory gate. Every agent step, tool invocation, and token budget check emits OpenTelemetry spans to Arize AX or CloudWatch. 
+
+This enables real-time trace analysis, confidence profiling, and drift detection:
+
+![OTel Telemetry Dashboard](file:///Users/lynuelx/Downloads/upwork/03_otel_telemetry_dashboard.jpg)
+
+---
+
+## 8. The 3-Day Rollout Plan
 
 To implement this compounding AI system for a new founder or enterprise team, execute the following 3-day roadmap:
 
@@ -150,7 +169,7 @@ To implement this compounding AI system for a new founder or enterprise team, ex
 
 ---
 
-## 7. Reusable Playbook Templates
+## 9. Reusable Playbook Templates
 
 To initialize a new project under this playbook, reference the following templates:
 
