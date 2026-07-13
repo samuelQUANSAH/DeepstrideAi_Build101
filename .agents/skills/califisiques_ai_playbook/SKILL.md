@@ -132,11 +132,30 @@ Phase 11: Handoff & Runbook Delivery ──> Separate Client and Engineering han
 
 ## 6. Build & DevSecOps Implementation
 
-Califisiques enforces secure, modular APIs to build scalable agent services. The following implementation pattern demonstrates how we enforce input validation, rate limiting, and token budgets at the gateway level:
+Califisiques enforces secure build pipelines and modular, validated code structures to keep projects safe and legally compliant.
+
+### I. Secure Gateway Implementation
+Input validation, rate limiting, and token budgets are enforced at the gateway level to prevent injection attacks and cost runaways:
 
 ![FastAPI Agent Code Screenshot](file:///Users/lynuelx/Downloads/upwork/04_fastapi_agent_code.jpg)
 
+### II. Open-Source Security & License Compliance
+To mitigate IP risks, legal copyleft exposure, and third-party vulnerabilities, all builds must satisfy the following pipeline requirements:
+
+1. **Automated Scanning (FOSSA/Snyk)**:
+   * Scan every commit and PR using tools like FOSSA to identify license compliance issues (blocking GPL, AGPL in proprietary applications) and security vulnerabilities (CVEs).
+   * Configuration policies must fail the build if high-severity CVEs or unauthorized licenses are introduced.
+2. **SBOM (Software Bill of Materials) Generation**:
+   * Generate SPDX or CycloneDX SBOM reports on release tags using `fossa report spdx` to compile a verifiable inventory of all software dependencies.
+3. **Vendored Code Auditing**:
+   * Map raw code directories (e.g., `legacy/`, `vendor/`) in `.fossa.yml` to run snippet checks and signature matching against open-source copyleft sources.
+
+### III. Common Build Security Gates
+* **Secret Scanning**: Block commits containing private keys, access tokens, or `.env` files using Git hooks or automated scanners (e.g., Trufflehog, GitGuardian).
+* **Secure Dependency Resolution**: Enforce modern lockfile verification (`npm ci` or equivalent) in build environments to prevent dependency hijacking (malicious updates in unpinned ranges).
+
 ---
+
 
 ## 7. Observability & Monitoring Implementation
 
