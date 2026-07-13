@@ -24,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: Run FOSSA Analyze
-        uses: fossas/fossa-action@v1
+        uses: fossas/fossa-action@v2
         with:
           api-key: ${{ secrets.FOSSA_API_KEY }}
 
