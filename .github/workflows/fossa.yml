@@ -1,4 +1,4 @@
-name: FOSSA License Scan
+name: FOSSA Security & License Scan
 
 on:
   push:
@@ -8,12 +8,30 @@ on:
 
 jobs:
   fossa-scan:
+    name: FOSSA Security Scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Run FOSSA Scan
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run FOSSA Analyze
         uses: fossas/fossa-action@v1
         with:
           api-key: ${{ secrets.FOSSA_API_KEY }}
+
+      - name: Run FOSSA Test
+        run: |
+          curl -H "Cache-Control: no-cache" https://raw.githubusercontent.com/fossas/fossa-cli/master/install-latest.sh | bash
+          fossa test --timeout 10m
+        env:
+          FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
+
