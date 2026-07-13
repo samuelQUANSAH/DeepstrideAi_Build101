@@ -20,13 +20,13 @@ export interface GovernanceRule {
 }
 
 export const siteContent = {
-  brand: "Califsiques",
+  brand: "BlindLabs.Dev",
   tagline: "AI-native engineering for the physical frontier.",
   subtagline: "We design autonomous AI systems that reason, coordinate, and execute across digital and physical environments.",
   
   mission: {
     title: "From intelligence to execution.",
-    body: "Califsiques builds agentic systems that go beyond static automation. Our systems plan, retrieve, reason, validate, coordinate tools, and prepare actions for real-world deployment."
+    body: "BlindLabs.Dev builds agentic systems that go beyond static automation. Our systems plan, retrieve, reason, validate, coordinate tools, and prepare actions for real-world deployment."
   },
 
   offerings: [
@@ -78,7 +78,7 @@ export const siteContent = {
   quantumHorizon: {
     title: "Quantum is the horizon.",
     tagline: "Quantum-aware research direction.",
-    body: "Califsiques explores quantum-inspired methods for optimization, search, and future agentic planning architectures. Our near-term systems are classical, observable, and deployable; our research direction is built for the next compute frontier."
+    body: "BlindLabs.Dev explores quantum-inspired methods for optimization, search, and future agentic planning architectures. Our near-term systems are classical, observable, and deployable; our research direction is built for the next compute frontier."
   },
 
   technicalEdge: [
