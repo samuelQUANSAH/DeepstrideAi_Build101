@@ -71,10 +71,10 @@ My work focuses on turning ambiguous client problems into deployable AI prototyp
 ```text
 1. Discover the Business Problem  --> Pinpoint bottlenecks, manual steps, and data ambiguity.
 2. Decompose Agent Tasks        --> Assign specialized agents (retrieval, logic, safety, UI).
-3. Design Secure Architecture    --> Structure backend API, vector search pipeline, and RBAC rules.
+3. Design Secure Architecture    --> Structure backend API, vector search pipeline, code authentication/validation, and RBAC rules.
 4. Build Interactive Prototypes  --> Develop client-facing React panels for stakeholder feedback.
-5. Add Controls & Observability  --> Integrate token budget gates, HITL approvals, and trace logs.
-6. Package & Deliver             --> Ship clean repositories, architecture playbooks, and client bundles.
+5. Add Controls & Observability  --> Integrate token budget gates, HITL approvals, FOSSA security & license scans, and trace logs.
+6. Package & Deliver             --> Ship clean repositories, architecture playbooks, verified ownership rights, and client bundles.
 ```
 
 ---
