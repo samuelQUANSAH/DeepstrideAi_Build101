@@ -38,7 +38,7 @@ export const ContactCTA: React.FC = () => {
         <div className="text-center mb-12">
           <span className="text-xs uppercase tracking-widest text-orange-500 font-bold">Get in touch</span>
           <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-white mt-2">
-            Build with Califsiques
+            Build with BlindLabs.Dev
           </h2>
           <p className="text-brand-lightgray mt-3 font-light text-sm">
             Inquire about system deployment, scheduling, or collaboration.
@@ -147,7 +147,7 @@ export const ContactCTA: React.FC = () => {
                 <CheckCircle className="w-16 h-16 text-orange-500 mb-6" />
                 <h3 className="font-heading font-extrabold text-2xl text-white mb-2">Inquiry Received</h3>
                 <p className="text-neutral-400 text-sm max-w-sm">
-                  Thank you, **{formState.name}**. The Califsiques engineering team will contact you shortly at **{formState.email}** to discuss your **{formState.projectType}** implementation.
+                  Thank you, **{formState.name}**. The BlindLabs.Dev engineering team will contact you shortly at **{formState.email}** to discuss your **{formState.projectType}** implementation.
                 </p>
                 <button 
                   onClick={() => setSubmitted(false)}

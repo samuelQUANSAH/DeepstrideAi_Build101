@@ -18,7 +18,7 @@ export const SplineHero: React.FC = () => {
             <div className="absolute inset-0 border-4 border-t-orange-500 rounded-full animate-spin"></div>
           </div>
           <p className="mt-4 text-xs font-mono tracking-widest text-orange-500 animate-pulse">
-            LOADING CALIFSIQUES 3D STACK...
+            LOADING BLINDLABS.DEV 3D STACK...
           </p>
         </div>
       )}
@@ -33,7 +33,7 @@ export const SplineHero: React.FC = () => {
           <p className="text-xs text-neutral-400 max-w-sm">
             Interactive canvas could not connect. Reverting to static logo alignment layer.
           </p>
-          {/* Static glowing SVG placeholder matching Califsiques Logo */}
+          {/* Static glowing SVG placeholder matching BlindLabs Logo */}
           <div className="mt-6 w-32 h-32 relative flex items-center justify-center">
             <div className="absolute inset-0 rounded-full bg-orange-500/5 blur-xl animate-pulse" />
             <svg className="w-20 h-20 text-orange-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">

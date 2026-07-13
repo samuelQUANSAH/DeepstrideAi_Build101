@@ -40,7 +40,7 @@ class StitchIntegration {
 
     try {
       // Call official Google Stitch SDK methods
-      const project = await stitch.createProject("Califsiques Workspace");
+      const project = await stitch.createProject("BlindLabs.Dev Workspace");
       const screen = await project.generate(prompt);
       
       const html = await screen.getHtml();
