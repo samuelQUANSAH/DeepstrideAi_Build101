@@ -43,7 +43,7 @@ My work focuses on turning ambiguous client problems into deployable AI prototyp
 * **Why it matters**: Bridges the trust gap between automated LLM decisions and human operators, offering clear visualization of decision history before actions execute.
 * **Status**: [Active Build / Developer Kit](https://github.com/samuelQUANSAH/agentic-rag-prototype)
 
-### 3. DeepStride AI
+### 3. BlindLabs.Dev
 * **Type**: Embodied Agentic Web Platform
 * **Stack**: React, Vite, TypeScript, Tailwind CSS v4, Framer Motion, React Flow
 * **What it does**: A premium SpaceX-inspired interactive website showcasing agentic system execution, visual multi-agent architecture flows, and quantum-inspired AI research.

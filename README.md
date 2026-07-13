@@ -1,6 +1,6 @@
-# DeepStride AI — Agentic Systems for the Physical Frontier
+# BlindLabs.Dev — Agentic Systems for the Physical Frontier
 
-Welcome to the official repository for **DeepStride AI**. This project hosts the client-ready, ultra-modern, cinematic web platform for DeepStride AI—showcasing advanced agentic intelligence systems that move from digital reasoning into physical-world execution, with future-facing research into quantum-inspired computing.
+Welcome to the official repository for **BlindLabs.Dev**. This project hosts the client-ready, ultra-modern, cinematic web platform for BlindLabs.Dev—showcasing advanced agentic intelligence systems that move from digital reasoning into physical-world execution, with future-facing research into quantum-inspired computing.
 
 ---
 
@@ -68,7 +68,7 @@ npm run build
 
 ## Security & Governance Guardrails
 
-The website demonstrates DeepStride AI's core architectural guidelines:
+The website demonstrates BlindLabs.Dev's core architectural guidelines:
 * **Control before Autonomy**: No critical action executes without operator validation.
 * **Least Privilege**: Key environment details are kept isolated from direct LLM contexts.
 * **Human-in-the-Loop**: Interactive contact waitlists, visual approval flow gates, and safe execution boundaries are highlighted on the live portal page.
