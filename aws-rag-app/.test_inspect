@@ -1,0 +1,4 @@
+# Test Inspection Configurations
+ENABLED=true
+LOG_LEVEL=DEBUG
+VERBOSE=true

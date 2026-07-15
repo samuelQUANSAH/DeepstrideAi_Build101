@@ -1,0 +1,23 @@
+# Local environment variables
+.env
+.env.local
+
+# Python caches and virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+ENV/
+
+# Local databases and stores
+data/vector_store/
+*.db
+*.sqlite
+
+# IDEs and OS files
+.DS_Store
+.idea/
+.vscode/
