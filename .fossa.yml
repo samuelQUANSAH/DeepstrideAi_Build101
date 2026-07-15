@@ -1,0 +1,22 @@
+# .fossa.yml
+version: 3
+cli:
+  targets:
+    - name: creative-science-frontend
+      type: npm
+      path: .
+      exclude:
+        - node_modules
+        - dist
+        - public
+
+    - name: creative-science-vendored
+      type: raw
+      path: legacy
+      options:
+        scan-vendored: true
+
+snippets:
+  enabled: true
+  paths:
+    - src/
